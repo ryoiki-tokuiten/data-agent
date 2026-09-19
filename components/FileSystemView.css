@@ -1,0 +1,1011 @@
+/* ==========================================================================
+   FileSystemView.css - Codex Pitch Black Workspace Explorer
+   ========================================================================== */
+
+.file-system-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 120px);
+  background: #000000;
+  color: var(--text-color, #ededed);
+  border: 1px solid var(--border-color, #222222);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Left Sidebar: File Tree Explorer
+   ========================================================================== */
+
+.file-system-sidebar {
+  width: 300px;
+  min-width: 260px;
+  max-width: 360px;
+  background: #090909;
+  border-right: 1px solid var(--border-color, #222222);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.fs-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.1rem 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--border-color, #222222);
+}
+
+.fs-sidebar-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #999999;
+  text-transform: uppercase;
+  font-family: var(--font-mono, monospace);
+}
+
+.fs-sidebar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.fs-refresh-btn {
+  background: #141414;
+  border: 1px solid #222222;
+  color: #888888;
+  border-radius: 3px;
+  padding: 0.2rem 0.35rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.fs-refresh-btn:hover:not(:disabled) {
+  color: #ededed;
+  border-color: #444444;
+  background: #1e1e1e;
+}
+
+.fs-refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.fs-file-counter {
+  font-size: 0.7rem;
+  font-family: var(--font-mono, monospace);
+  color: #666666;
+  background: #141414;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  border: 1px solid #222222;
+}
+
+.fs-search-container {
+  position: relative;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--border-color, #222222);
+}
+
+.fs-search-input {
+  width: 100%;
+  background: #111111;
+  border: 1px solid #262626;
+  border-radius: 4px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8rem;
+  color: #ededed;
+  font-family: var(--font-mono, monospace);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.fs-search-input:focus {
+  border-color: #444444;
+}
+
+.fs-search-clear {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #666666;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.fs-search-clear:hover {
+  color: #ededed;
+}
+
+.fs-tree-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+}
+
+.fs-folder-group {
+  margin-bottom: 0.35rem;
+}
+
+.fs-folder-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #aaaaaa;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.fs-folder-header:hover {
+  background: #141414;
+  color: #ededed;
+}
+
+.fs-caret {
+  font-size: 0.65rem;
+  color: #555555;
+  transition: transform 0.15s ease;
+  display: inline-block;
+}
+
+.fs-caret.collapsed {
+  transform: rotate(-90deg);
+}
+
+.fs-folder-name {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+}
+
+.fs-folder-count {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-family: var(--font-mono, monospace);
+  color: #555555;
+}
+
+.fs-folder-children {
+  padding-left: 0.75rem;
+}
+
+.fs-empty-folder {
+  padding: 0.35rem 1rem 0.35rem 1.65rem;
+  font-size: 0.72rem;
+  color: #444444;
+  font-style: italic;
+  font-family: var(--font-mono, monospace);
+}
+
+.fs-tree-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.38rem 0.85rem;
+  font-size: 0.8rem;
+  color: #888888;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 3px;
+  margin: 0.1rem 0.4rem;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.fs-tree-item:hover {
+  background: #141414;
+  color: #ededed;
+}
+
+.fs-tree-item.active {
+  background: #1a1a1a;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.fs-file-icon {
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+  padding: 0.12rem 0.32rem;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+.fs-icon-md {
+  background: #162235;
+  color: #60a5fa;
+  border: 1px solid #1e3a5f;
+}
+
+.fs-icon-csv {
+  background: #15291f;
+  color: #4ade80;
+  border: 1px solid #1e4530;
+}
+
+.fs-icon-json {
+  background: #2b2313;
+  color: #facc15;
+  border: 1px solid #4a3c1c;
+}
+
+.fs-icon-python {
+  background: #271a33;
+  color: #c084fc;
+  border: 1px solid #422659;
+}
+
+.fs-item-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+}
+
+.fs-item-badge {
+  font-size: 0.62rem;
+  font-family: var(--font-mono, monospace);
+  color: #555555;
+  background: #111111;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  border: 1px solid #222222;
+}
+
+/* ==========================================================================
+   Right Pane: File Content Viewer
+   ========================================================================== */
+
+.file-system-viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #000000;
+  height: 100%;
+  overflow: hidden;
+}
+
+.fs-viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: #090909;
+  border-bottom: 1px solid var(--border-color, #222222);
+  gap: 1rem;
+}
+
+.fs-viewer-path {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #888888;
+  font-size: 0.82rem;
+  font-family: var(--font-mono, monospace);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fs-path-text {
+  color: #ededed;
+  font-weight: 500;
+}
+
+.fs-badge {
+  font-size: 0.68rem;
+  font-family: var(--font-mono, monospace);
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.fs-badge-size {
+  background: #141414;
+  color: #777777;
+  border: 1px solid #262626;
+}
+
+.fs-badge-meta {
+  background: #111111;
+  color: #999999;
+  border: 1px solid #222222;
+}
+
+.fs-viewer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fs-header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #111111;
+  color: #cccccc;
+  border: 1px solid #262626;
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.76rem;
+  font-family: var(--font-mono, monospace);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.fs-header-btn:hover {
+  background: #1a1a1a;
+  border-color: #383838;
+  color: #ffffff;
+}
+
+.fs-viewer-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 1.75rem;
+}
+
+/* ==========================================================================
+   1. Markdown Rendering in File System
+   ========================================================================== */
+
+.fs-markdown-container {
+  max-width: 1050px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.fs-markdown-body {
+  color: #cccccc;
+  font-size: 0.92rem;
+}
+
+.fs-md-h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color, #222222);
+}
+
+.fs-md-h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ededed;
+  margin: 2rem 0 0.85rem 0;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #1c1c1c;
+}
+
+.fs-md-h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #dddddd;
+  margin: 1.5rem 0 0.65rem 0;
+}
+
+.fs-li {
+  margin-left: 1.5rem;
+  margin-bottom: 0.35rem;
+  color: #bbbbbb;
+}
+
+.fs-inline-code {
+  background: #141414;
+  border: 1px solid #262626;
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85em;
+  color: #e5e5e5;
+}
+
+.fs-code-block {
+  background: #090909;
+  border: 1px solid #222222;
+  border-radius: 5px;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.83rem;
+  color: #e0e0e0;
+}
+
+.fs-table-wrapper {
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  border: 1px solid var(--border-color, #222222);
+  border-radius: 4px;
+}
+
+.fs-md-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  text-align: left;
+}
+
+.fs-md-table th {
+  background: #0d0d0d;
+  color: #aaaaaa;
+  font-weight: 600;
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid #222222;
+  border-right: 1px solid #1a1a1a;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fs-md-table th:last-child {
+  border-right: none;
+}
+
+.fs-md-table td {
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid #141414;
+  border-right: 1px solid #141414;
+  color: #cccccc;
+}
+
+.fs-md-table td:last-child {
+  border-right: none;
+}
+
+.fs-md-table tr:last-child td {
+  border-bottom: none;
+}
+
+.fs-md-table tr:hover td {
+  background: #0c0c0c;
+}
+
+.fs-p-break {
+  height: 0.75rem;
+}
+
+/* ==========================================================================
+   2. Tabular Data View (CSV / TSV)
+   ========================================================================== */
+
+.fs-tabular-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.fs-table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  gap: 1rem;
+}
+
+.fs-table-metrics {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-family: var(--font-mono, monospace);
+  color: #888888;
+}
+
+.fs-bullet {
+  color: #444444;
+}
+
+.fs-table-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.fs-table-search {
+  background: #0d0d0d;
+  border: 1px solid #222222;
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.78rem;
+  color: #ededed;
+  font-family: var(--font-mono, monospace);
+  width: 220px;
+  outline: none;
+}
+
+.fs-table-search:focus {
+  border-color: #444444;
+}
+
+.fs-table-page-size {
+  background: #0d0d0d;
+  border: 1px solid #222222;
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.76rem;
+  color: #cccccc;
+  font-family: var(--font-mono, monospace);
+  outline: none;
+  cursor: pointer;
+}
+
+.fs-grid-scroll {
+  flex: 1;
+  overflow: auto;
+  border: 1px solid var(--border-color, #222222);
+  border-radius: 4px;
+  background: #050505;
+}
+
+.fs-data-grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  font-family: var(--font-mono, monospace);
+}
+
+.fs-data-grid thead th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #0c0c0c;
+  color: #999999;
+  font-weight: 600;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #262626;
+  border-right: 1px solid #1a1a1a;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.fs-col-idx {
+  width: 45px;
+  min-width: 45px;
+  text-align: center !important;
+  color: #555555 !important;
+  user-select: none;
+  background: #080808 !important;
+}
+
+.fs-data-grid tbody td {
+  padding: 0.48rem 0.75rem;
+  border-bottom: 1px solid #141414;
+  border-right: 1px solid #141414;
+  color: #cccccc;
+  white-space: nowrap;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: copy;
+}
+
+.fs-data-grid tbody tr:hover td {
+  background: #0f0f0f;
+  color: #ffffff;
+}
+
+.fs-cell-copied {
+  background: #1e3a24 !important;
+  color: #4ade80 !important;
+  font-weight: 600;
+}
+
+.fs-td-empty {
+  text-align: center;
+  padding: 3rem 1rem !important;
+  color: #555555;
+  font-style: italic;
+}
+
+.fs-table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.2rem;
+}
+
+.fs-page-info {
+  font-size: 0.75rem;
+  font-family: var(--font-mono, monospace);
+  color: #777777;
+}
+
+.fs-pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.fs-page-btn {
+  background: #0f0f0f;
+  border: 1px solid #262626;
+  color: #cccccc;
+  border-radius: 3px;
+  padding: 0.25rem 0.55rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: var(--font-mono, monospace);
+}
+
+.fs-page-btn:hover:not(:disabled) {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.fs-page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.fs-current-page {
+  font-size: 0.76rem;
+  font-family: var(--font-mono, monospace);
+  padding: 0 0.4rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   3. Code / JSON View
+   ========================================================================== */
+
+.fs-code-viewer {
+  height: 100%;
+}
+
+.fs-code-pre {
+  background: #080808;
+  border: 1px solid #222222;
+  border-radius: 5px;
+  padding: 1.25rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  color: #d1d5db;
+  line-height: 1.6;
+  overflow: auto;
+  margin: 0;
+  max-height: calc(100vh - 200px);
+}
+
+.fs-code-pre code.hljs,
+.fs-code-block code.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* ==========================================================================
+   4. LIGHT MODE SUPPORT ([data-theme="light"])
+   ========================================================================== */
+
+[data-theme="light"] .file-system-container {
+  background: #ffffff;
+  color: #111827;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Sidebar Light Mode */
+[data-theme="light"] .file-system-sidebar {
+  background: #fbfbfb;
+  border-right-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .fs-sidebar-header {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .fs-sidebar-title {
+  color: #4b5563;
+}
+
+[data-theme="light"] .fs-file-counter {
+  background: #f3f4f6;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #4b5563;
+}
+
+[data-theme="light"] .fs-search-container {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .fs-search-input {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #111827;
+}
+
+[data-theme="light"] .fs-search-input:focus {
+  border-color: rgba(1, 105, 204, 0.6);
+}
+
+[data-theme="light"] .fs-search-clear {
+  color: #9ca3af;
+}
+
+[data-theme="light"] .fs-search-clear:hover {
+  color: #111827;
+}
+
+[data-theme="light"] .fs-folder-header {
+  color: #374151;
+}
+
+[data-theme="light"] .fs-folder-header:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #111827;
+}
+
+[data-theme="light"] .fs-caret {
+  color: #6b7280;
+}
+
+[data-theme="light"] .fs-folder-count {
+  color: #9ca3af;
+}
+
+[data-theme="light"] .fs-empty-folder {
+  color: #9ca3af;
+}
+
+[data-theme="light"] .fs-tree-item {
+  color: #4b5563;
+}
+
+[data-theme="light"] .fs-tree-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #111827;
+}
+
+[data-theme="light"] .fs-tree-item.active {
+  background: #eef2f6;
+  color: #111827;
+  font-weight: 600;
+}
+
+[data-theme="light"] .fs-icon-md {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+
+[data-theme="light"] .fs-icon-csv {
+  background: #f0fdf4;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+[data-theme="light"] .fs-icon-json {
+  background: #fefce8;
+  color: #ca8a04;
+  border-color: #fef08a;
+}
+
+[data-theme="light"] .fs-icon-python {
+  background: #faf5ff;
+  color: #9333ea;
+  border-color: #e9d5ff;
+}
+
+[data-theme="light"] .fs-item-badge {
+  background: #f3f4f6;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #6b7280;
+}
+
+/* Viewer Light Mode */
+[data-theme="light"] .file-system-viewer {
+  background: #ffffff;
+}
+
+[data-theme="light"] .fs-viewer-header {
+  background: #fbfbfb;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .fs-viewer-path {
+  color: #6b7280;
+}
+
+[data-theme="light"] .fs-path-text {
+  color: #111827;
+}
+
+[data-theme="light"] .fs-badge-size {
+  background: #f3f4f6;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #6b7280;
+}
+
+[data-theme="light"] .fs-badge-meta {
+  background: #f3f4f6;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #4b5563;
+}
+
+[data-theme="light"] .fs-header-btn {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #374151;
+}
+
+[data-theme="light"] .fs-header-btn:hover {
+  background: #f9fafb;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #111827;
+}
+
+/* Markdown Light Mode */
+[data-theme="light"] .fs-markdown-body {
+  color: #374151;
+}
+
+[data-theme="light"] .fs-md-h1 {
+  color: #111827;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .fs-md-h2 {
+  color: #111827;
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .fs-md-h3 {
+  color: #1f2937;
+}
+
+[data-theme="light"] .fs-li {
+  color: #4b5563;
+}
+
+[data-theme="light"] .fs-inline-code {
+  background: #f3f4f6;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+
+[data-theme="light"] .fs-code-block {
+  background: #f8f9fa;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #1f2937;
+}
+
+[data-theme="light"] .fs-table-wrapper {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .fs-md-table th {
+  background: #f3f4f6;
+  color: #374151;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  border-right-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .fs-md-table td {
+  color: #374151;
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+  border-right-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .fs-md-table tr:hover td {
+  background: #f9fafb;
+}
+
+/* CSV Data Table Light Mode */
+[data-theme="light"] .fs-table-metrics {
+  color: #6b7280;
+}
+
+[data-theme="light"] .fs-bullet {
+  color: #9ca3af;
+}
+
+[data-theme="light"] .fs-table-search {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #111827;
+}
+
+[data-theme="light"] .fs-table-search:focus {
+  border-color: rgba(1, 105, 204, 0.6);
+}
+
+[data-theme="light"] .fs-table-page-size {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #374151;
+}
+
+[data-theme="light"] .fs-grid-scroll {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .fs-data-grid thead th {
+  background: #f3f4f6;
+  color: #374151;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  border-right-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .fs-col-idx {
+  background: #f9fafb !important;
+  color: #9ca3af !important;
+}
+
+[data-theme="light"] .fs-data-grid tbody td {
+  color: #1f2937;
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+  border-right-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .fs-data-grid tbody tr:hover td {
+  background: #f9fafb;
+  color: #111827;
+}
+
+[data-theme="light"] .fs-cell-copied {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+}
+
+[data-theme="light"] .fs-td-empty {
+  color: #9ca3af;
+}
+
+[data-theme="light"] .fs-page-info {
+  color: #6b7280;
+}
+
+[data-theme="light"] .fs-page-btn {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #374151;
+}
+
+[data-theme="light"] .fs-page-btn:hover:not(:disabled) {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+[data-theme="light"] .fs-current-page {
+  color: #111827;
+}
+
+/* Code Viewer Pre Light Mode */
+[data-theme="light"] .fs-code-pre {
+  background: #f8f9fa;
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #1f2937;
+}
