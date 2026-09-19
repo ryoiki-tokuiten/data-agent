@@ -2,8 +2,6 @@
 
 An autonomous, full-stack AI data science and analytics platform that automates exploratory data analysis (EDA), data cleaning, statistical modeling, anomaly detection, predictive forecasting, and interactive visualization generation using Google Gemini.
 
----
-
 ## Current Capabilities Include
 
 - **Multi-Format Ingestion**: Supports CSV, Parquet, JSON, Apache Arrow, Feather, SQLite (`.db`, `.sqlite`), and Excel spreadsheets (`.xlsx`, `.xls`).
@@ -22,8 +20,6 @@ An autonomous, full-stack AI data science and analytics platform that automates 
 I plan to implement a well-thought abstract harness layer around the data-science domain specific stuff in future. 
 
 
----
-
 ## Tech Stack
 
 | Layer | Technologies |
@@ -34,7 +30,6 @@ I plan to implement a well-thought abstract harness layer around the data-scienc
 | **Python Environment** | Python 3.10+, pandas, numpy, scipy, scikit-learn, statsmodels, prophet, matplotlib |
 | **AI Engine** | Google GenAI SDK (`@google/genai`), Gemini 3.1 Pro, Gemini 3.8 Flash, Gemini 3.5 Flash Lite |
 
----
 
 ## Getting Started
 
@@ -93,8 +88,6 @@ Alternatively, start them individually:
 npm run dev:frontend   # Starts Vite on port 5173
 npm run dev:backend    # Starts Express on port 3001
 ```
-
----
 
 ## License
 
