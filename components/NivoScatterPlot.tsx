@@ -5,7 +5,7 @@ import {
     ResponsiveContainer, ZAxis, Brush
 } from 'recharts';
 import type { ScatterDataKeys, TrendlineSpec } from '../types';
-import { CHART_COLORS } from '../constants';
+import { CHART_COLORS } from '../utils/constants';
 
 interface NivoScatterPlotProps {
     data: any[];

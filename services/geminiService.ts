@@ -12,7 +12,7 @@ import type {
   LiveExecutionStep,
   DataCleaningReportResult
 } from '../types';
-import { SUPPORTED_CHART_TYPES, DEFAULT_MODEL_ID } from '../constants';
+import { SUPPORTED_CHART_TYPES, DEFAULT_MODEL_ID } from '../utils/constants';
 import {
   GET_DATA_CLEANING_REPORT_SYSTEM_PROMPT,
   DETECT_ANOMALIES_SYSTEM_PROMPT,
@@ -20,7 +20,7 @@ import {
   GET_FORECASTING_REPORT_SYSTEM_PROMPT_PHASE1_PROPOSAL,
   GET_FORECASTING_REPORT_SYSTEM_PROMPT_PHASE2_CODE_EXEC,
   GET_MODEL_INSIGHT_SYSTEM_PROMPT,
-} from '../prompts';
+} from './prompts';
 import {
   DATA_SCIENCE_FUNCTION_TOOLS,
   executeRegisteredFunction,

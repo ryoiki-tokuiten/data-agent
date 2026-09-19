@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { AVAILABLE_MODELS } from '../constants';
+import { AVAILABLE_MODELS } from '../utils/constants';
 
 interface ModelSelectorProps {
   selectedModelId: string;

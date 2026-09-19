@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { useFileStore } from '../stores';
-import { ACCEPTED_MIME_TYPES } from '../constants';
+import { useFileStore } from '../hooks/stores';
+import { ACCEPTED_MIME_TYPES } from '../utils/constants';
 import { FaDatabase } from 'react-icons/fa6';
 
 const getFileExtension = (filename: string) => {

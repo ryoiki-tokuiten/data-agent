@@ -1,5 +1,5 @@
 import React from 'react';
-import { useUIStore } from '../stores';
+import { useUIStore } from '../hooks/stores';
 import type { Anomaly } from '../types';
 import { DataContextTable } from './DataContextTable';
 import { ChartDisplay } from './ChartDisplay';

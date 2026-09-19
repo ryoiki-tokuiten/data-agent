@@ -3,11 +3,11 @@ import { create } from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
 import React from 'react';
 import { Part } from '@google/genai';
-import { GeminiService } from './services/geminiService';
+import { GeminiService } from '../services/geminiService';
 import type { 
     ChartSpec, 
     PipelineTabType, 
-    AnalysisTabType,
+    AnalysisTabType, 
     FullScreenImageInfo, 
     FullScreenModelCardInfo, 
     FullScreenCodePanelInfo, 
@@ -20,8 +20,8 @@ import type {
     LiveExecutionStep,
     AnalysisConfig,
     DataCleaningReportResult
-} from './types';
-import { MAX_FILES, MAX_FILE_SIZE_MB, DEFAULT_MODEL_ID, PIPELINE_TAB_TYPES, EXPORT_VERSION } from './constants';
+} from '../types';
+import { MAX_FILES, MAX_FILE_SIZE_MB, DEFAULT_MODEL_ID, PIPELINE_TAB_TYPES, EXPORT_VERSION } from '../utils/constants';
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~~~~~~ UTILITY FUNCTIONS ~~~~~~~~~

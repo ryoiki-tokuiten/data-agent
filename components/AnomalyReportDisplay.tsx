@@ -7,7 +7,7 @@ import { AnomalyFilters } from './AnomalyFilters';
 import { AnomalyDetailModal } from './AnomalyDetailModal';
 import { DataContextTable } from './DataContextTable';
 import { ChartDisplay } from './ChartDisplay';
-import { useUIStore } from '../stores';
+import { useUIStore } from '../hooks/stores';
 import { formatTypeLabel } from '../utils/formatting';
 
 interface AnomalyReportDisplayProps {

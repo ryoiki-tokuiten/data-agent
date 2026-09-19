@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveTimeRange } from '@nivo/calendar';
 import type { TimeRangeDataKeys, TimeRangeDataItem } from '../types';
-import { useUIStore } from '../stores';
+import { useUIStore } from '../hooks/stores';
 
 interface NivoTimeRangeProps {
     data: any[];

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveRadialBar } from '@nivo/radial-bar';
 import type { RadialBarData } from '../types';
-import { CHART_COLORS } from '../constants';
+import { CHART_COLORS } from '../utils/constants';
 
 interface RadialBarProps {
   data: RadialBarData[];

@@ -20,7 +20,7 @@ import { NivoScatterPlot } from './NivoScatterPlot';
 import { PlotlyBubbleChart } from './PlotlyBubbleChart';
 
 import type { ChartSpec, BarLineAreaDataKeys, PieDataKeys, ScatterDataKeys, PolarBarData, PolarBarDataKeys, RadialBarData, DataTableDataKeys, DataTableColumn, ComposedChartDataKeys, HeatmapDataKeys, BoxPlotDataKeys, ViolinPlotDataKeys, StreamgraphDataKeys, BubbleChartDataKeys, SankeyData, TreeMapData, ChoroplethData, ChoroplethDataKeys, CalendarDataKeys, TimeRangeDataKeys, WaffleChartDataKeys, WaffleChartDataItem } from '../types';
-import { CHART_COLORS, hexToRgba } from '../constants';
+import { CHART_COLORS, hexToRgba } from '../utils/constants';
 import PipelineStageErrorBoundary from './PipelineStageErrorBoundary';
 import { FiDownload, FiMaximize2, FiMinimize2, FiBarChart2, FiDatabase } from 'react-icons/fi';
 import { MdOutlineDownloadForOffline } from 'react-icons/md';

@@ -2,7 +2,7 @@
 
 
 import React, { useState } from 'react';
-import { useAppStore } from '../stores';
+import { useAppStore } from '../hooks/stores';
 
 export const ApiKeyForm: React.FC = () => {
   const currentGemini = useAppStore((state) => state.geminiApiKey) || localStorage.getItem('geminiApiKey') || '';

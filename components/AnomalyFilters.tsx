@@ -1,5 +1,5 @@
 import React from 'react';
-import { useUIStore } from '../stores';
+import { useUIStore } from '../hooks/stores';
 import type { AnomalyType, RiskLevel } from '../types';
 import { formatTypeLabel } from '../utils/formatting';
 

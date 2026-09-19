@@ -1,9 +1,9 @@
 import React from 'react';
 import { ResponsiveBoxPlot } from '@nivo/boxplot';
 import type { BoxPlotDataKeys } from '../types';
-import { CHART_COLORS } from '../constants';
+import { CHART_COLORS } from '../utils/constants';
 import { validateNumericKey, validateKeyExists, sanitizeNumericKeys } from '../utils/dataValidation';
-import { useUIStore } from '../stores';
+import { useUIStore } from '../hooks/stores';
 
 interface NivoBoxPlotProps {
   data: Array<Record<string, any>>;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ResponsiveChoropleth } from '@nivo/geo';
 import type { ChoroplethData, ChoroplethDataKeys } from '../types';
 import { loadWorldMapFeatures } from '../utils/worldMapData';
-import { useUIStore } from '../stores';
+import { useUIStore } from '../hooks/stores';
 
 interface ChoroplethProps {
   data: ChoroplethData[];

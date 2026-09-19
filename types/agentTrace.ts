@@ -1,4 +1,4 @@
-import type { LiveExecutionStep } from '../types';
+import type { LiveExecutionStep } from './index';
 
 export type AgentTraceSessionStatus = 'pending' | 'running' | 'completed' | 'failed';
 

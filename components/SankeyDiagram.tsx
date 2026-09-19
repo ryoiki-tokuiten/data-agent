@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveSankey } from '@nivo/sankey';
 import type { SankeyData } from '../types';
-import { CHART_COLORS } from '../constants';
+import { CHART_COLORS } from '../utils/constants';
 
 interface SankeyDiagramProps {
   data: SankeyData;

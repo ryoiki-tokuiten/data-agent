@@ -1,5 +1,5 @@
 
-import { SUPPORTED_CHART_TYPES } from './constants';
+import { SUPPORTED_CHART_TYPES } from '../utils/constants';
 
 const QualityStandards = `
 <QUALITY_STANDARDS_FOR_DATA_ANALYSIS_AND_VISUALIZATION>

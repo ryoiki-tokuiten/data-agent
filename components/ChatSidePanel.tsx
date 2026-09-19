@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { RiGeminiFill } from 'react-icons/ri';
 import { FiZap } from 'react-icons/fi';
-import { useAppStore, usePipelineStore } from '../stores';
+import { useAppStore, usePipelineStore } from '../hooks/stores';
 import type { ChartSpec, ForecastingModelDetail } from '../types';
-import { VISUALIZATION_CHAT_SYSTEM_PROMPT, FORECASTING_CHAT_SYSTEM_PROMPT } from '../prompts';
+import { VISUALIZATION_CHAT_SYSTEM_PROMPT, FORECASTING_CHAT_SYSTEM_PROMPT } from '../services/prompts';
 import { DATA_SCIENCE_FUNCTION_TOOLS, executeRegisteredFunction } from '../services/functionTools';
 import './ChatSidePanel.css';
 

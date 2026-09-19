@@ -1,25 +1,25 @@
 
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useAppStore, useFileStore, usePipelineStore, useUIStore, resetAllStores, loadArchivedState } from './stores';
-import { FileInput } from './components/FileInput';
-import { ChartDisplay } from './components/ChartDisplay';
-import { LoadingSpinner } from './components/LoadingSpinner';
-import { Modal } from './components/Modal';
-import { ModelSelector } from './components/ModelSelector';
-import { InsightAssistantModal } from './components/InsightAssistantModal';
-import { AnomalyReportDisplay } from './components/AnomalyReportDisplay';
-import { ForecastingReportDisplay, ModelExecutionDetailCard } from './components/ForecastingReportDisplay';
-import { ChatSidePanel } from './components/ChatSidePanel';
-import { CleanedDataTable } from './components/CleanedDataTable';
-import { FullScreenCodePanel } from './components/FullScreenCodePanel';
-import type { PipelineTabType, PipelineSubPartStatus, FullScreenChartInfo, AnalysisResult } from './types';
-import { AVAILABLE_MODELS, PIPELINE_TAB_TYPES } from './constants';
-import PipelineStageErrorBoundary from './components/PipelineStageErrorBoundary';
-import { ApiKeyForm } from './components/ApiKeyForm';
-import { AgentTraceView } from './components/AgentTraceView';
-import { VirtualizedChartGrid } from './components/VirtualizedChartGrid';
-import { FileSystemView } from './components/FileSystemView';
+import { useAppStore, useFileStore, usePipelineStore, useUIStore, resetAllStores, loadArchivedState } from '../hooks/stores';
+import { FileInput } from './FileInput';
+import { ChartDisplay } from './ChartDisplay';
+import { LoadingSpinner } from './LoadingSpinner';
+import { Modal } from './Modal';
+import { ModelSelector } from './ModelSelector';
+import { InsightAssistantModal } from './InsightAssistantModal';
+import { AnomalyReportDisplay } from './AnomalyReportDisplay';
+import { ForecastingReportDisplay, ModelExecutionDetailCard } from './ForecastingReportDisplay';
+import { ChatSidePanel } from './ChatSidePanel';
+import { CleanedDataTable } from './CleanedDataTable';
+import { FullScreenCodePanel } from './FullScreenCodePanel';
+import type { PipelineTabType, PipelineSubPartStatus, FullScreenChartInfo, AnalysisResult } from '../types';
+import { AVAILABLE_MODELS, PIPELINE_TAB_TYPES } from '../utils/constants';
+import PipelineStageErrorBoundary from './PipelineStageErrorBoundary';
+import { ApiKeyForm } from './ApiKeyForm';
+import { AgentTraceView } from './AgentTraceView';
+import { VirtualizedChartGrid } from './VirtualizedChartGrid';
+import { FileSystemView } from './FileSystemView';
 
 export const getModelDisplayName = (modelId: string) => {
     return AVAILABLE_MODELS.find(m => m.id === modelId)?.displayName || modelId;

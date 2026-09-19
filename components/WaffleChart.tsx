@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResponsiveWaffle } from '@nivo/waffle';
-import { CHART_COLORS } from '../constants';
+import { CHART_COLORS } from '../utils/constants';
 
 interface WaffleChartData {
   id: string;

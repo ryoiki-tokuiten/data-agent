@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { usePipelineStore, useFileStore } from '../stores';
+import { usePipelineStore, useFileStore } from '../hooks/stores';
 import type { VirtualFile } from '../types';
 import './FileSystemView.css';
 

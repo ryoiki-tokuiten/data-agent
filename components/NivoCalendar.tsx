@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveCalendar } from '@nivo/calendar';
 import type { CalendarDataKeys, CalendarDataItem } from '../types';
-import { useUIStore } from '../stores';
+import { useUIStore } from '../hooks/stores';
 
 interface NivoCalendarProps {
     data: any[];

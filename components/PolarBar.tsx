@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsivePolarBar } from '@nivo/polar-bar';
 import type { PolarBarData, PolarBarDataKeys } from '../types';
-import { CHART_COLORS } from '../constants';
+import { CHART_COLORS } from '../utils/constants';
 
 type RadialInput = {
   id: string | number;

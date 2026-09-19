@@ -1,7 +1,7 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
 import type { ViolinPlotDataKeys } from '../types';
-import { CHART_COLORS } from '../constants';
+import { CHART_COLORS } from '../utils/constants';
 
 interface PlotlyViolinPlotProps {
   data: Array<Record<string, any>>;

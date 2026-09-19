@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useUIStore } from '../stores';
+import { useUIStore } from '../hooks/stores';
 
 declare var hljs: any;
 

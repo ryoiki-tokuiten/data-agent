@@ -116,4 +116,3 @@ export const hexToRgba = (hex: string, alpha: number = 1): string => {
   }
   return hex;
 };
-

@@ -1,4 +1,4 @@
-import { SUPPORTED_CHART_TYPES } from '../constants';
+import { SUPPORTED_CHART_TYPES } from '../utils/constants';
 import type { SupportedChartType, ChartSpec, AnomalyReport, ForecastingModelDetail, ForecastingReport } from '../types';
 
 export interface FunctionToolDeclaration {
